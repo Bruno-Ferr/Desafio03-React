@@ -71,7 +71,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const removeProduct = (productId: number) => {
     try {
-      const productExists = cart.find(product => product.id === productId);
+      const productExists = cart.some(product => product.id === productId);
       if(!productExists) {
         toast.error('Erro na alteração de quantidade do produto')
         return;
@@ -104,7 +104,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         toast.error('Quantidade selecionada fora do estoque!');
         return;
       }
-      const productExists = cart.find(product => product.id === productId);
+      const productExists = cart.some(product => product.id === productId);
 
       if(!productExists) {
         toast.error('Erro na alteração de quantidade do produto')
